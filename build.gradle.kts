@@ -23,14 +23,13 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-//	implementation("io.projectreactor.kafka:reactor-kafka")
-//	implementation("com.axis.lending:axis-kafka-starter")
-//	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation("org.springframework.kafka:spring-kafka:2.8.7")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 	testImplementation("io.kotlintest:kotlintest-runner-junit5:3.4.2")
 	testImplementation("io.mockk:mockk:1.10.6")
+	testImplementation("org.springframework.kafka:spring-kafka-test")
 
 }
 

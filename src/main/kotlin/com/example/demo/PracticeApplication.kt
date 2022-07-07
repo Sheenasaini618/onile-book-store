@@ -12,11 +12,3 @@ class PracticeApplication
 fun main(args: Array<String>) {
 	runApplication<PracticeApplication>(*args)
 	}
-
-
-
-
-
-
-
-

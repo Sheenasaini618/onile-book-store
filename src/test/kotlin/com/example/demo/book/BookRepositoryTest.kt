@@ -25,12 +25,12 @@ class BookRepositoryTest {
     @Test
     fun `should find book for given author `() {
 
-        val book = Book("abdc" , "image.png" , "def" , "ghi" , 100 , 2)
+        val book = Book("1","probability" , Image("https://image.png","https://image.png") , listOf("Michael"), "abcd" , 2,4)
 
         bookRepository.save(book).block()
 
-        val actualSaveApplication = bookRepository.findByAuthor(
-            "def"
+        val actualSaveApplication = bookRepository.findByAuthors(
+            "Michael"
         ).blockFirst()
 
         actualSaveApplication shouldBe book
@@ -39,23 +39,22 @@ class BookRepositoryTest {
     @Test
     fun `should find book for given title`() {
 
-        val book = Book("abdc" , "image.png" , "def" , "ghi" , 100 , 2)
+        val book = Book("1","probability" , Image("https://image.png","https://image.png") , listOf("Michael"), "abcd" , 2,4)
 
         bookRepository.save(book).block()
 
-        val actualSaveApplication = bookRepository.findById(
-            "abdc"
-        ).block()
+        val actualSaveApplication = bookRepository.findByTitle(
+            "probability"
+        ).blockFirst()
 
-        println(actualSaveApplication)
         actualSaveApplication shouldBe book
     }
 
     @Test
     fun `should not store duplicate application with same title`() {
 
-        val book1 = Book("abdc" , "image.png" , "robo" , "ghi" , 1000 , 2)
-        val book2 = Book("abdc" , "image.png" , "def" , "ghi" , 100 , 2)
+        val book1 = Book("1","probability" , Image("https://image.png","https://image.png") , listOf("Michael"), "abcd" , 2,4)
+        val book2 = Book("1","complex Algebra" , Image("https://image.png","https://image.png"), listOf("Robert") , "abcd" , 100 , 3)
 
         bookRepository.insert(book1).block()
 

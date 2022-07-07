@@ -7,9 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document("books") // collection name (By default, the name of the collection will be the class name changed to start with a lower-case letter)
 data class Book(
     @Id
-    var title: String,
-    var image: String,
-    var author: String,
-    var description : String,
-    var price: Int,
-    var quantity: Int)
+    val id: String?,
+    var title: String?,
+    var imageLinks: Image?,
+    var authors: List<String>?,
+    var description : String?,
+    var price: Int?,
+    var quantity: Int?)
+
+data class Image(
+    val smallThumbnail:String?,
+    val thumbnail:String?)
+
+data class Item(val volumeInfo: Book?)
+
+data class GooleBook(val items:List<Item>?)
